@@ -1,3 +1,4 @@
+
 template <class T> class Vector
 {
 
@@ -5,7 +6,7 @@ private:
 
   T* arr;  // pointer to the first element of this Vector
   int capacity; // number of elements arr can hold (i.e. size of underlying array)
-  int n;        // size of this Vector
+  unsigned n;        // size of this Vector
 
   void increase_capacity(int sz) {
     if (sz <= capacity) return;
@@ -35,6 +36,11 @@ public:
     if (n >= capacity) increase_capacity(2 * capacity);
     arr[n] = x;
     ++n;
+  }
+
+  void pop_back()
+  {
+    n--;
   }
 
   void set(int i, T val) {
@@ -76,6 +82,18 @@ public:
 
   ~Vector() {       // destructor
     delete[] arr;
+  }
+
+  bool operator==(Vector &b) {
+    if (n != b.size()) {
+      return false;
+    }
+    for (int i = 0; i < b.size(); i++) {
+      if (arr[i] != b[i]) {
+        return false;
+      }
+    }
+    return true;
   }
 
 };
