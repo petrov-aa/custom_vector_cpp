@@ -93,11 +93,11 @@ public:
   class Iterator
   {
   private:
-    Vector<T> *vec;
+    Vector<T> *vector;
     int index;
   public:
-    Iterator(Vector<T> *vec, int index) {
-      this->vec = vec;
+    Iterator(Vector<T> *vector, int index) {
+      this->vector = vector;
       this->index = index;
     }
     Iterator operator++(int) {
@@ -105,7 +105,7 @@ public:
       return *this;
     }
     T operator*() {
-      return (*vec)[index];
+      return (*vector)[index];
     }
     bool operator==(Iterator b) {
       return index == b.index;
