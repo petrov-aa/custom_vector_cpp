@@ -1,3 +1,4 @@
+#include <iostream>
 
 template <class T> class Vector
 {
@@ -58,11 +59,6 @@ public:
     return arr[i];
   }
 
-  // const T& operator[](int i) const {
-  //   if (i < 0 || i >= n) throw "range error";
-  //   return arr[i];
-  // }
-
   void insert(T x, int i) {
     if (i < 0 || i > n) throw "range error";  // x can be inserted at location n,
                                               // i.e. the very end of the vector
@@ -88,12 +84,50 @@ public:
     if (n != b.size()) {
       return false;
     }
-    for (int i = 0; i < b.size(); i++) {
+    for (int i = 0; i < n; i++) {
       if (arr[i] != b[i]) {
         return false;
       }
     }
     return true;
   }
+
+  class Iterator
+  {
+  private:
+    Vector<T> *vec;
+    int index;
+  public:
+    Iterator(Vector<T> *vec, int index) {
+      this->vec = vec;
+      this->index = index;
+    }
+    Iterator operator++(int) {
+      index ++;
+      return *this;
+    }
+    T operator*() {
+      return (*vec)[index];
+    }
+    bool operator==(Iterator b) {
+      return index == b.index;
+    }
+    bool operator!=(Iterator b) {
+      return index != b.index;
+    }
+  };
+
+  Iterator begin()
+  {
+    Iterator* it = new Iterator(this, 0);
+    return *it;
+  }
+
+  Iterator end()
+  {
+    Iterator* it = new Iterator(this, n);
+    return *it;
+  }
+
 
 };
