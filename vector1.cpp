@@ -1,6 +1,6 @@
 template <class T> class Vector
 {
-  
+
 private:
 
   T* arr;  // pointer to the first element of this Vector
