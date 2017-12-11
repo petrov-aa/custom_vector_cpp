@@ -30,6 +30,7 @@ public:
   int size() const {
     return n;
   }
+
   void push_back(T x) {
     if (n >= capacity) increase_capacity(2 * capacity);
     arr[n] = x;
@@ -51,10 +52,10 @@ public:
     return arr[i];
   }
 
-  const T& operator[](int i) const {
-    if (i < 0 || i >= n) throw "range error";
-    return arr[i];
-  }
+  // const T& operator[](int i) const {
+  //   if (i < 0 || i >= n) throw "range error";
+  //   return arr[i];
+  // }
 
   void insert(T x, int i) {
     if (i < 0 || i > n) throw "range error";  // x can be inserted at location n,
