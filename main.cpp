@@ -34,6 +34,7 @@ int main() {
     b.push_back(1.1);
     cout << (a == b) << endl; // >>  1
 
+    a.push_back(1.1);
     b.push_back(2.2);
     cout << (a == b)  << endl; // >> 0
   }

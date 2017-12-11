@@ -80,7 +80,7 @@ public:
 
   bool operator==(Vector &b) {
     if (n != b.size()) {
-      return false;
+      throw "vectors must be of the same shape";
     }
     for (int i = 0; i < n; i++) {
       if (arr[i] != b[i]) {
