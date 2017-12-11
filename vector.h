@@ -3,15 +3,13 @@
 
 template <class T> class Vector
 {
-  private:
+private:
   T* arr;  // pointer to the first element of this Vector
   int capacity; // number of elements arr can hold (i.e. size of underlying array)
   int n;        // size of this Vector
   void increase_capacity(int sz);
 
-  public:
-
-  // create an empty vector
+public:
   Vector();
   int size() const;
   void push_back(T x);
@@ -21,7 +19,6 @@ template <class T> class Vector
   const T& operator[](int i) const;
   void insert(T x, int i);
   ~Vector();
-
 };
 
 template <class T>
@@ -58,32 +55,32 @@ void Vector<T>::push_back(T x) {
 
 template <class T>
 void Vector<T>::set(int i, T val) {
-  if (i < 0 || i >= n) throw("range error");
+  if (i < 0 || i >= n) throw "range error";
   arr[i] = val;
 }
 
 template <class T>
 T Vector<T>::get(int i) {
-  if (i < 0 || i >= n) throw("range error");
+  if (i < 0 || i >= n) throw "range error";
   return arr[i];
 }
 
 template <class T>
 T& Vector<T>::operator[](int i) {
-  if (i < 0 || i >= n) throw("range error");
+  if (i < 0 || i >= n) throw "range error";
   return arr[i];
 }
 
 template <class T>
 const T& Vector<T>::operator[](int i) const {
-  if (i < 0 || i >= n) throw("range error");
+  if (i < 0 || i >= n) throw "range error";
   return arr[i];
 }
 
 template <class T>
 void Vector<T>::insert(T x, int i) {
-  if (i < 0 || i > n) throw("range error");  // x can be inserted at location n,
-                                             // i.e. the very end of the vector
+  if (i < 0 || i > n) throw "range error";  // x can be inserted at location n,
+                                            // i.e. the very end of the vector
 
   push_back(0); // increase the size of the vector by 1
 
